@@ -1,0 +1,71 @@
+{
+  "name": "Trail Predictor",
+  "version": "1.0",
+  "author": "Alessio Sclocco",
+  "description": "Predict trail time",
+  "type": "feature",
+  "usage": "workout",
+  "modificationTime": 1702918829,
+  "in": [
+    {
+      "name": "duration",
+      "source": "Activity/Move/-1/Duration/Current",
+      "type": "subscribe"
+    },
+    {
+      "name": "distance",
+      "source": "Activity/Move/-1/Distance/Current",
+      "type": "subscribe"
+    },
+    {
+      "name": "ascent",
+      "source": "/Fusion/Altitude/Ascent",
+      "type": "subscribe"
+    },
+    {
+      "name": "nav_remaining_distance",
+      "source": "/Navigation/Routes/NavigatedRoute/DistanceToDestination",
+      "type": "subscribe"
+    },
+    {
+      "name": "nav_remaining_ascent",
+      "source": "/Navigation/Routes/NavigatedRoute/RemainAscent",
+      "type": "subscribe"
+    },
+    {
+      "name": "navigation",
+      "source": "/Navigation/State",
+      "type": "subscribe"
+    }
+  ],
+  "out": [
+    {
+      "name": "predicted_duration"
+    },
+    {
+      "name": "remaining_distance"
+    },
+    {
+      "name": "remaining_ascent"
+    }
+  ],
+  "template": [
+    {
+      "name": "t.html"
+    }
+  ],
+  "settings": [
+    {
+      "shownName": "Planned distance",
+      "path": "planned_distance",
+      "type": "float",
+      "min": 0
+    },
+    {
+      "shownName": "Planned ascent",
+      "path": "planned_ascent",
+      "type": "float",
+      "min": 0
+    }
+  ]
+}
