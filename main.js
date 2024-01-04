@@ -18,8 +18,11 @@ function evaluate(input, output) {
     output.remaining_ascent = Number(localStorage.getItem("planned_ascent")) - input.ascent;
   }
 
-  var eqSPEED = (((input.distance / 1000) + input.ascent) / 100) / (input.duration / 3600)
-  output.predicted_duration = input.duration + (((output.remaining_distance + output.remaining_ascent) / 100) / eqSPEED);
+  // speed is in km/h
+  var speed = ((input.distance / 1000) + (input.ascent / 100)) / (input.duration / 3600);
+  // predicted_duration is in seconds
+  output.predicted_duration = (((output.remaining_distance / 1000) + (output.remaining_ascent / 100)) / speed) * 3600;
+  output.predicted_duration += input.duration;
 }
 
 
