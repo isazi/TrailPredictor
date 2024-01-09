@@ -56,13 +56,13 @@
   ],
   "settings": [
     {
-      "shownName": "Planned distance",
+      "shownName": "Planned distance (in meters)",
       "path": "planned_distance",
       "type": "float",
       "min": 0
     },
     {
-      "shownName": "Planned ascent",
+      "shownName": "Planned ascent (in meters)",
       "path": "planned_ascent",
       "type": "float",
       "min": 0
