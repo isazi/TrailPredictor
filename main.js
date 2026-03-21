@@ -58,9 +58,10 @@ function onExerciseContinue()
 function getUserInterface() {
   return {
     template: 't',
-    tl: {input: 'output/remaining_distance', format: 'Distance_Accurate'},
-    tr: {input: 'output/remaining_ascent', format: 'Ascent_Sixdigits'},
-    mid: {input: 'output/predicted_duration', format: 'Duration_Accurate'},
+    tl: {input: 'output/remaining_ascent', format: 'Ascent_Sixdigits'},
+    tr: {input: 'output/remaining_descent', format: 'Descent_Sixdigits'},
+    ml: {input: 'output/ete', format: 'Duration_Accurate'},
+    mr: {input: 'output/ett', format: 'Duration_Accurate'},
     bottom: {input: 'Activity/Move/-1/Duration/Current', format: 'Duration_Accurate'}
   };
 }
