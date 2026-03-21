@@ -11,25 +11,29 @@ function evaluate(input, output) {
   if ( input.navigation == 3 || input.navigation == 7) {
     output.remaining_distance = input.nav_remaining_distance;
     output.remaining_ascent = input.nav_remaining_ascent;
+    output.remaining_descent = input.nav_remaining_descent;
   }
   // If not navigating, use values set by user in the App
   else {
     output.remaining_distance = Number(localStorage.getItem("planned_distance")) - input.distance;
     output.remaining_ascent = Number(localStorage.getItem("planned_ascent")) - input.ascent;
+    output.remaining_descent = Number(localStorage.getItem("planned_descent")) - input.descent;
   }
 
-  // speed is in km/h
-  var speed = ((input.distance / 1000) + (input.ascent / 100)) / (input.duration / 3600);
-  // predicted_duration is in seconds
-  output.predicted_duration = (((output.remaining_distance / 1000) + (output.remaining_ascent / 100)) / speed) * 3600;
-  output.predicted_duration += input.duration;
+  // equivalent speed is in km/h
+  var eq_speed = (input.distance / 1000) + ((input.ascent / 100) * 0.6) + ((input.descent / 100) * 0.4) / (input.duration / 3600);
+  // predicted durations are always in seconds
+  output.ete = ((output.remaining_distance / 1000) + ((output.remaining_ascent / 100) * 0.6) + ((output.remaining_descent / 100) * 0.4) / eq_speed) * 3600;
+  output.ett = (((input.distance + output.remaining_distance) / 1000) + (((input.ascent +output.remaining_ascent) / 100) * 0.6) + (((input.descent + output.remaining_descent) / 100) * 0.4) / eq_speed) * 3600;
 }
 
 
 function onLoad(input, output) {
-  output.predicted_duration = 0;
+  output.ett = 0;
+  output.ete = 0;
   output.remaining_distance = 0;
   output.remaining_ascent = 0;
+  output.remaining_descent = 0;
 }
 
 
