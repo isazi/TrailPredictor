@@ -60,8 +60,8 @@ function getUserInterface() {
     template: 't',
     tl: {input: 'output/remaining_ascent', format: 'Ascent_Sixdigits'},
     tr: {input: 'output/remaining_descent', format: 'Descent_Sixdigits'},
-    ml: {input: 'output/ete', label: 'ETE', format: 'Duration_Accurate'},
-    mr: {input: 'output/ett', label: 'ETT', format: 'Duration_Accurate'},
+    ml: {input: 'output/ete', label: 'ETE', format: 'Duration_Approximate'},
+    mr: {input: 'output/ett', label: 'ETT', format: 'Duration_Approximate'},
     bottom: {input: 'Activity/Move/-1/Duration/Current', format: 'Duration_Accurate'}
   };
 }
