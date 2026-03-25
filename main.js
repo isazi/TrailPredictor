@@ -24,7 +24,7 @@ function evaluate(input, output) {
   var eq_speed = (input.distance / 1000) + ((input.ascent / 100) * 0.6) + ((input.descent / 100) * 0.4) / (input.duration / 3600);
   // predicted durations are always in seconds
   output.ete = ((output.remaining_distance / 1000) + ((output.remaining_ascent / 100) * 0.6) + ((output.remaining_descent / 100) * 0.4) / eq_speed) * 3600;
-  output.ett = (((input.distance + output.remaining_distance) / 1000) + (((input.ascent +output.remaining_ascent) / 100) * 0.6) + (((input.descent + output.remaining_descent) / 100) * 0.4) / eq_speed) * 3600;
+  output.ett = (((input.distance + output.remaining_distance) / 1000) + (((input.ascent + output.remaining_ascent) / 100) * 0.6) + (((input.descent + output.remaining_descent) / 100) * 0.4) / eq_speed) * 3600;
 }
 
 
@@ -60,8 +60,8 @@ function getUserInterface() {
     template: 't',
     tl: {input: 'output/remaining_ascent', format: 'Ascent_Sixdigits'},
     tr: {input: 'output/remaining_descent', format: 'Descent_Sixdigits'},
-    ml: {input: 'output/ete', format: 'Duration_Accurate'},
-    mr: {input: 'output/ett', format: 'Duration_Accurate'},
+    ml: {input: 'output/ete', label: 'ETE', format: 'Duration_Accurate'},
+    mr: {input: 'output/ett', label: 'ETT', format: 'Duration_Accurate'},
     bottom: {input: 'Activity/Move/-1/Duration/Current', format: 'Duration_Accurate'}
   };
 }

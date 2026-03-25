@@ -21,7 +21,7 @@
 
     <!-- top left -->
 <:if test="{APP_IS_DISPLAY_LARGE}">
-    <div class="f-ico" style="top:calc(35% - 100%e);left:calc(26% - 50%e)">&#xF259;</div>
+    <div class="f-ico" style="top:calc(35% - 100%e);left:calc(26% - 50%e)">&#xF112;</div>
     <div class="sp-d-m f-num" style="top:calc(41% - 50%e);left:calc(26% - 50%e)">
       <eval input="{zapp_tl_input}" outputFormat="{zapp_tl_format}" default="--" />
     </div>
@@ -29,7 +29,7 @@
 <:else>
     <div style="top:26%;left:3%;width:46%;height:30%">
       <div class="p-hc sp-vertical-center">
-        <span class="f-ico" style="padding-right:4px">&#xF259;</span>
+        <span class="f-ico" style="padding-right:4px">&#xF112;</span>
         <span class="sp-d-s f-num">
           <eval input="{zapp_tl_input}" outputFormat="{zapp_tl_format}" default="--" />
         </span>
@@ -39,7 +39,7 @@
 
     <!-- top right -->
 <:if test="{APP_IS_DISPLAY_LARGE}">    
-    <div class="f-ico" style="top:calc(35% - 100%e);left:calc(74% - 50%e)">&#xF259;</div>
+    <div class="f-ico" style="top:calc(35% - 100%e);left:calc(74% - 50%e)">&#xF113;</div>
     <div class="sp-d-m f-num c-green" style="top:calc(41% - 50%e);left:calc(74% - 50%e)">
       <eval input="{zapp_tr_input}" outputFormat="{zapp_tr_format}" default="--" />
     </div>
@@ -50,22 +50,24 @@
         <span class="sp-d-s f-num">
           <eval input="{zapp_tr_input}" outputFormat="{zapp_tr_format}" default="--" />
         </span>
-        <span class="f-ico" style="padding-left:4px">&#xF266;</span>
+        <span class="f-ico" style="padding-left:4px">&#xF113;</span>
       </div>
     </div>   
 </:else>
 
     <!-- middle left -->
 <:if test="{APP_IS_DISPLAY_LARGE}">    
-    <div class="f-ico" style="top:calc(60% - 100%e);left:calc(26% - 50%e)">&#xF101;</div>
+    <div class="sp-t-s" style="top:calc(60% - 50%e);left:calc(26% - 50%e)">
+      {zapp_ml_label}
+    </div>
     <div class="sp-d-s f-num" style="top:calc(66% - 50%e);left:calc(26% - 50%e)">
       <eval input="{zapp_ml_input}" outputFormat="{zapp_ml_format}" default="--" />
     </div>
 </:if>
 <:else>
     <div style="top:48%;left:5%;width:43%;height:30%">
-      <div class="p-hc sp-vertical-center">
-        <span class="f-ico" style="padding-right:4px">&#xF101;</span>
+      <div class="p-hc" style="display:flex; flex-direction:column; align-items:center;">
+        <span class="sp-t-s">{zapp_ml_label}</span>
         <span class="sp-d-s f-num">
           <eval input="{zapp_ml_input}" outputFormat="{zapp_ml_format}" default="--" />
         </span>
@@ -75,18 +77,20 @@
 
     <!-- middle right -->
 <:if test="{APP_IS_DISPLAY_LARGE}">    
-    <div class="f-ico" style="top:calc(60% - 100%e);left:calc(74% - 50%e)">&#xF102;</div>
+    <div class="sp-t-s" style="top:calc(60% - 50%e);left:calc(74% - 50%e)">
+      {zapp_mr_label}
+    </div>
     <div class="sp-d-s f-num" style="top:calc(66% - 50%e);left:calc(74% - 50%e)">
       <eval input="{zapp_mr_input}" outputFormat="{zapp_mr_format}" default="--" />
     </div>
 </:if>
 <:else>
     <div style="top:48%;left:51%;width:48%;height:30%">
-      <div class="p-hc sp-vertical-center">
+      <div class="p-hc" style="display:flex; flex-direction:column; align-items:center;">
+        <span class="sp-t-s">{zapp_mr_label}</span>
         <span class="sp-d-s f-num">
           <eval input="{zapp_mr_input}" outputFormat="{zapp_mr_format}" default="--" />
         </span>
-        <span class="f-ico" style="padding-left:4px">&#xF102;</span>
       </div>
     </div>
 </:else>
