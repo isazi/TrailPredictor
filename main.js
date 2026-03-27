@@ -24,7 +24,7 @@ function evaluate(input, output) {
   var eq_speed = (input.distance / 1000) + ((input.ascent / 100) * 0.6) + ((input.descent / 100) * 0.4) / (input.duration / 3600);
   // predicted durations are always in seconds
   output.ete = ((output.remaining_distance / 1000) + ((output.remaining_ascent / 100) * 0.6) + ((output.remaining_descent / 100) * 0.4) / eq_speed) * 3600;
-  output.ett = (((input.distance + output.remaining_distance) / 1000) + (((input.ascent + output.remaining_ascent) / 100) * 0.6) + (((input.descent + output.remaining_descent) / 100) * 0.4) / eq_speed) * 3600;
+  output.ett = input.duration + output.ete;
 }
 
 
