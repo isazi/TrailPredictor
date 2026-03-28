@@ -20,6 +20,12 @@ function evaluate(input, output) {
     output.remaining_descent = Number(localStorage.getItem("planned_descent")) - input.descent;
   }
 
+  if ( output.remaining_distance <= 0 ) {
+    output.ete = 0;
+    output.ett = input.duration;
+    return;
+  }
+
   // equivalent speed is in km/h
   var eq_speed = (input.distance / 1000) + ((input.ascent / 100) * 0.6) + ((input.descent / 100) * 0.4) / (input.duration / 3600);
   // predicted durations are always in seconds
