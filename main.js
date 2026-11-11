@@ -1,8 +1,11 @@
 
 var isPaused = true;
-
+// Minimum duration and distance to start calculating ETE and ETT
+var MIN_DURATION  = 60;
+var MIN_DISTANCE  = 250;
 
 function evaluate(input, output) {
+  // Do not perform calculations if the exercise is paused
   if ( isPaused ) {
     return;
   }
@@ -19,10 +22,14 @@ function evaluate(input, output) {
     output.remaining_ascent = Number(localStorage.getItem("planned_ascent")) - input.ascent;
     output.remaining_descent = Number(localStorage.getItem("planned_descent")) - input.descent;
   }
-
+  // If at destination, set ETE to 0 and ETT to current duration
   if ( output.remaining_distance <= 0 ) {
     output.ete = 0;
     output.ett = input.duration;
+    return;
+  }
+  // Do not calculate ETE and ETT if the exercise is too short
+  if ( input.duration < MIN_DURATION || input.distance < MIN_DISTANCE ) {
     return;
   }
 
@@ -35,11 +42,11 @@ function evaluate(input, output) {
 
 
 function onLoad(input, output) {
-  output.ett = 0;
-  output.ete = 0;
-  output.remaining_distance = 0;
-  output.remaining_ascent = 0;
-  output.remaining_descent = 0;
+  output.ett = null;
+  output.ete = null;
+  output.remaining_distance = null;
+  output.remaining_ascent = null;
+  output.remaining_descent = null;
 }
 
 
