@@ -31,7 +31,7 @@ function evaluate(input, output) {
   // If at destination, set all outputs to zero
   if ( output.remaining_distance <= 0 ) {
     output.remaining_ascent = 0;
-    output.remainig_descent = 0;
+    output.remaining_descent = 0;
     output.ete = 0;
     output.ett = input.duration;
     return;
