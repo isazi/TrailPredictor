@@ -1,0 +1,28 @@
+Trail Predictor
+
+Know how long your trail will take — while you're still on it.
+
+Trail Predictor shows two values on your watch during an activity:
+
+- ETE — estimated time en route: how much time is left until you finish
+- ETT — estimated total time: your finish time (elapsed time + ETE)
+
+The prediction adapts to terrain. It uses your average pace over distance, weighted for climbing and descending, so it accounts for how trails really feel — flat kilometers run differently than steep ones.
+
+How it gets your remaining route:
+
+1. Navigating a route (recommended): select a route in navigation and start moving — Trail Predictor reads the remaining distance, ascent, and descent automatically and updates as you go.
+2. No route? Set your planned distance, ascent, and descent in the app settings in the Suunto app beforehand, and the app compares your plan against your progress.
+
+To use this app you need:
+
+- For best results: a planned route to navigate, or known plan values entered in the app settings
+- About a minute of activity before predictions appear — the app waits until it has enough real movement data to give you a reliable estimate
+
+Predictions assume you keep moving at roughly the pace you've built up so far. Big pace changes (a steep climb after a fast start) will make the estimate adjust as your average catches up.
+
+---
+
+Short version (for the store summary field):
+
+Predicts your remaining and finish time for trail routes, using distance, ascent and descent — from route navigation or a manual plan.

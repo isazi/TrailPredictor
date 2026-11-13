@@ -3,6 +3,9 @@ var isPaused = true;
 // Minimum duration and distance to start calculating ETE and ETT
 var MIN_DURATION  = 60;
 var MIN_DISTANCE  = 250;
+// 'l' = large display (e.g. Suunto Race / Vertical large variants);
+// smaller displays need compact formats to fit icon + value side by side
+var IS_LARGE_DISPLAY = ('{{ DISPLAY_ID }}' === 'l');
 
 function evaluate(input, output) {
   // Do not perform calculations if the exercise is paused
@@ -76,8 +79,8 @@ function getUserInterface() {
     template: 't',
     tl: {input: 'output/remaining_ascent', format: 'Ascent_Sixdigits'},
     tr: {input: 'output/remaining_descent', format: 'Descent_Sixdigits'},
-    ml: {input: 'output/ete', label: 'ETE', format: 'Duration_Approximate'},
-    mr: {input: 'output/ett', label: 'ETT', format: 'Duration_Approximate'},
+    ml: {input: 'output/ete', label: 'ETE', format: IS_LARGE_DISPLAY ? 'Duration_Training' : 'Duration_Humane'},
+    mr: {input: 'output/ett', label: 'ETT', format: IS_LARGE_DISPLAY ? 'Duration_Training' : 'Duration_Humane'},
     bottom: {input: 'Activity/Move/-1/Duration/Current', format: 'Duration_Accurate'}
   };
 }
