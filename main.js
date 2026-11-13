@@ -22,17 +22,20 @@ function evaluate(input, output) {
     output.remaining_ascent = Number(localStorage.getItem("planned_ascent")) - input.ascent;
     output.remaining_descent = Number(localStorage.getItem("planned_descent")) - input.descent;
   }
-  // If at destination, set ETE to 0 and ETT to current duration
-  if ( output.remaining_distance <= 0 ) {
-    output.ete = 0;
-    output.ett = input.duration;
-    return;
-  }
+
   // Do not calculate ETE and ETT if the exercise is too short
   if ( input.duration < MIN_DURATION || input.distance < MIN_DISTANCE ) {
     return;
   }
 
+  // If at destination, set all outputs to zero
+  if ( output.remaining_distance <= 0 ) {
+    output.remaining_ascent = 0;
+    output.remainig_descent = 0;
+    output.ete = 0;
+    output.ett = input.duration;
+    return;
+  }
   // equivalent speed is in km/h
   var eq_speed = ((input.distance / 1000) + ((input.ascent / 100) * 0.6) + ((input.descent / 100) * 0.4)) / (input.duration / 3600);
   // predicted durations are always in seconds
