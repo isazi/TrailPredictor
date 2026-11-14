@@ -2,10 +2,10 @@ Trail Predictor
 
 Know how long your trail will take, while you're still on it.
 
-Trail Predictor shows two values on your watch during an activity:
+Trail Predictor shows your remaining distance and remaining ascent, plus two time predictions:
 
 - ETE (estimated time en route): how much time is left until you finish
-- ETT (estimated total time): your finish time (elapsed time + ETE)
+- ETT (estimated total time): the total time you will have been moving when you finish
 
 The prediction adapts to terrain. It uses your average pace over distance, weighted for climbing and descending, so it accounts for how trails really feel — flat kilometers run differently than steep ones.
 
