@@ -3,7 +3,6 @@ var isPaused = true;
 // Minimum duration and distance to start calculating ETE and ETT
 var MIN_DURATION  = 60;
 var MIN_DISTANCE  = 250;
-var IS_LARGE_DISPLAY = ('{{ DISPLAY_ID }}' === 'l' || '{{ DISPLAY_ID }}' === 'o' || '{{ DISPLAY_ID }}' === 'q');
 
 function evaluate(input, output) {
   // Do not perform calculations if the exercise is paused
@@ -77,8 +76,8 @@ function getUserInterface() {
     template: 't',
     tl: {input: 'output/remaining_distance', format: 'NavigationRouteDistance_Fourdigits'},
     tr: {input: 'output/remaining_ascent', format: 'Ascent_Sixdigits'},
-    ml: {input: 'output/ete', label: 'ETE', format: IS_LARGE_DISPLAY ? 'Duration_Training' : 'Duration_Humane'},
-    mr: {input: 'output/ett', label: 'ETT', format: IS_LARGE_DISPLAY ? 'Duration_Training' : 'Duration_Humane'},
+    ml: {input: 'output/ete', label: 'ETE', format: 'Duration_Humane'},
+    mr: {input: 'output/ett', label: 'ETT', format: 'Duration_Humane'},
     bottom: {input: 'Activity/Move/-1/Duration/Current', format: 'Duration_Accurate'}
   };
 }
