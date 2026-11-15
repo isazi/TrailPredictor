@@ -3,9 +3,7 @@ var isPaused = true;
 // Minimum duration and distance to start calculating ETE and ETT
 var MIN_DURATION  = 60;
 var MIN_DISTANCE  = 250;
-// 'l' = large display (e.g. Suunto Race / Vertical large variants);
-// smaller displays need compact formats to fit icon + value side by side
-var IS_LARGE_DISPLAY = ('{{ DISPLAY_ID }}' === 'l');
+var IS_LARGE_DISPLAY = ('{{ DISPLAY_ID }}' === 'l' || '{{ DISPLAY_ID }}' === 'o' || '{{ DISPLAY_ID }}' === 'q');
 
 function evaluate(input, output) {
   // Do not perform calculations if the exercise is paused
