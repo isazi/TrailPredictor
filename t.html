@@ -61,11 +61,11 @@
 </:else>
 
     <!-- middle left -->
-<:if test="'{{ DISPLAY_ID }}' == 'l' || '{{ DISPLAY_ID }}' == 'o' || '{{ DISPLAY_ID }}' == 'q' ? 1 : 0">
-    <div class="sp-t-s" style="top:calc(60% - 50%e);left:calc(26% - 50%e)">
+<:if test="'{{ DISPLAY_ID }}' == 'l' || '{{ DISPLAY_ID }}' == 'o' || '{{ DISPLAY_ID }}' == 'q' ? 1 : 0">    
+    <div class="sp-t-s" style="top:calc(54% - 50%e);left:calc(26% - 50%e)">
       {zapp_ml_label}
     </div>
-    <div class="sp-d-s f-num" style="top:calc(66% - 50%e);left:calc(26% - 50%e)">
+    <div class="sp-d-s f-num" style="top:calc(54% + 20px);left:calc(26% - 50%e)">
       <eval input="{zapp_ml_input}" outputFormat="{zapp_ml_format}" default="--" />
     </div>
 </:if>
@@ -81,11 +81,11 @@
 </:else>
 
     <!-- middle right -->
-<:if test="'{{ DISPLAY_ID }}' == 'l' || '{{ DISPLAY_ID }}' == 'o' || '{{ DISPLAY_ID }}' == 'q' ? 1 : 0">
-    <div class="sp-t-s" style="top:calc(60% - 50%e);left:calc(74% - 50%e)">
+<:if test="'{{ DISPLAY_ID }}' == 'l' || '{{ DISPLAY_ID }}' == 'o' || '{{ DISPLAY_ID }}' == 'q' ? 1 : 0">    
+    <div class="sp-t-s" style="top:calc(54% - 50%e);left:calc(74% - 50%e)">
       {zapp_mr_label}
     </div>
-    <div class="sp-d-s f-num" style="top:calc(66% - 50%e);left:calc(74% - 50%e)">
+    <div class="sp-d-s f-num" style="top:calc(54% + 20px);left:calc(74% - 50%e)">
       <eval input="{zapp_mr_input}" outputFormat="{zapp_mr_format}" default="--" />
     </div>
 </:if>
