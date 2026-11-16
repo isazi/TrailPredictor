@@ -18,9 +18,9 @@ function evaluate(input, output) {
   }
   // If not navigating, use values set by user in the App
   else {
-    output.remaining_distance = Number(localStorage.getItem("planned_distance")) - input.distance;
-    output.remaining_ascent = Number(localStorage.getItem("planned_ascent")) - input.ascent;
-    output.remaining_descent = Number(localStorage.getItem("planned_descent")) - input.descent;
+    output.remaining_distance = Math.max(0, Number(localStorage.getItem("planned_distance")) - input.distance);
+    output.remaining_ascent = Math.max(0, Number(localStorage.getItem("planned_ascent")) - input.ascent);
+    output.remaining_descent = Math.max(0, Number(localStorage.getItem("planned_descent")) - input.descent);
   }
 
   // Do not calculate ETE and ETT if the exercise is too short
@@ -28,7 +28,7 @@ function evaluate(input, output) {
     return;
   }
 
-  // If at destination, set all outputs to zero
+  // If at destination, stop predicting
   if ( output.remaining_distance <= 0 ) {
     output.remaining_ascent = 0;
     output.remaining_descent = 0;
