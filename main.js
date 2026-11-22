@@ -1,5 +1,8 @@
 
 var isPaused = true;
+// Factors to account for ascent and descent in the equivalent speed calculation
+var ASCENT_FACTOR = 0.6;
+var DESCENT_FACTOR = 0.4;
 // Minimum duration and distance to start calculating ETE and ETT
 var MIN_DURATION  = 60;
 var MIN_DISTANCE  = 250;
@@ -12,9 +15,9 @@ function evaluate(input, output) {
 
   // If following (or snapping to) a route, use that as remaining values
   if ( input.navigation == 3 || input.navigation == 7) {
-    output.remaining_distance = input.nav_remaining_distance;
-    output.remaining_ascent = input.nav_remaining_ascent;
-    output.remaining_descent = input.nav_remaining_descent;
+    output.remaining_distance = Math.max(0, input.nav_remaining_distance);
+    output.remaining_ascent = Math.max(0, input.nav_remaining_ascent);
+    output.remaining_descent = Math.max(0, input.nav_remaining_descent);
   }
   // If not navigating, use values set by user in the App
   else {
@@ -37,9 +40,9 @@ function evaluate(input, output) {
     return;
   }
   // equivalent speed is in km/h
-  var eq_speed = ((input.distance / 1000) + ((input.ascent / 100) * 0.6) + ((input.descent / 100) * 0.4)) / (input.duration / 3600);
+  var eq_speed = ((input.distance / 1000) + ((input.ascent / 100) * ASCENT_FACTOR) + ((input.descent / 100) * DESCENT_FACTOR)) / (input.duration / 3600);
   // predicted durations are always in seconds
-  output.ete = (((output.remaining_distance / 1000) + ((output.remaining_ascent / 100) * 0.6) + ((output.remaining_descent / 100) * 0.4)) / eq_speed) * 3600;
+  output.ete = (((output.remaining_distance / 1000) + ((output.remaining_ascent / 100) * ASCENT_FACTOR) + ((output.remaining_descent / 100) * DESCENT_FACTOR)) / eq_speed) * 3600;
   output.ett = input.duration + output.ete;
 }
 

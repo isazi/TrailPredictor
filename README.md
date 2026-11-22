@@ -21,7 +21,7 @@ A Suunto Plus watch application that predicts estimated remaining time (`ETE`) a
 - Top row: remaining distance and remaining ascent (icon-labeled, unit-aware formatting)
 - Middle row: ETE and ETT
 - Bottom row: current activity duration
-- Durations use the sport-style format on large displays (`1:23'45`) and a compact format on small displays (`23'45` / `2:05`)
+- Durations use a single compact format on every display (`23'45` / `2:05`), chosen because an estimate does not need the sport-style `h:mm'ss` precision
 - Predictions appear after ~60 s and ~250 m of activity — the app waits for enough real movement data before showing an estimate
 
 ## Notes
